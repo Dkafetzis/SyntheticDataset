@@ -1,0 +1,302 @@
+[
+    {
+        "question": "What does the `langchain4j-core` module define?",
+        "answer": "The `langchain4j-core` module defines core abstractions such as `ChatLanguageModel` and `EmbeddingStore`, and their APIs.",
+        "contexts": [
+            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192458,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 0
+    },
+    {
+        "question": "What is the goal of LangChain4j?",
+        "answer": "The goal of LangChain4j is to simplify integrating LLMs into Java applications.",
+        "contexts": [
+            "The goal of LangChain4j is to simplify integrating LLMs into Java applications."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192451,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 1
+    },
+    {
+        "question": "What file types can be imported?",
+        "answer": "TXT, PDFs, DOC, PPT, XLS",
+        "contexts": [
+            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 2
+    },
+    {
+        "question": "How do I set my OpenAI API key in Java?",
+        "answer": "To set your OpenAI API key in Java, you should store your API key in an environment variable named \"OPENAI_API_KEY\". Then, you can retrieve it in your Java code using the following line: `String apiKey = System.getenv(\"OPENAI_API_KEY\");`. This approach helps reduce the risk of exposing your API key publicly.",
+        "contexts": [
+            "Then, import your OpenAI API key. It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly. java String apiKey = System.getenv(\"OPENAI_API_KEY\");"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192449,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 3
+    },
+    {
+        "question": "When did LangChain4j development start?",
+        "answer": "LangChain4j development started in early 2023.",
+        "contexts": [
+            "LangChain4j began development in early 2023 amid the ChatGPT hype."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192454,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 4
+    },
+    {
+        "question": "How many LLM providers does LangChain4j integrate with?",
+        "answer": "LangChain4j integrates with more than 15 LLM providers.",
+        "contexts": [
+            "- Integration with [15+ LLM providers](/integrations/language-models)"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192455,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 5
+    },
+    {
+        "question": "When did LangChain4j development start?",
+        "answer": "LangChain4j development started in early 2023.",
+        "contexts": [
+            "LangChain4j began development in early 2023 amid the ChatGPT hype."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192454,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 6
+    },
+    {
+        "question": "What formats can be imported for ingestion?",
+        "answer": "TXT, PDFs, DOC, PPT, XLS",
+        "contexts": [
+            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 7
+    },
+    {
+        "question": "How do you create an OpenAiChatModel instance?",
+        "answer": "To create an OpenAiChatModel instance, you use the builder pattern. First, you call `OpenAiChatModel.builder()`, then set the API key using `.apiKey(apiKey)`, specify the model name with `.modelName(GPT_4_O_MINI)`, and finally, call `.build()` to create the instance.",
+        "contexts": [
+            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192450,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 8
+    },
+    {
+        "question": "How to initiate a chat with the model?",
+        "answer": "To initiate a chat with the model, you need to create an instance of the OpenAiChatModel using the builder pattern, providing the API key and model name. Then, you can generate a response by calling the `generate` method with your input string. For example:\n\n1. Set up the key and create an instance of OpenAiChatModel:\n   ```java\n   OpenAiChatModel model = OpenAiChatModel.builder()\n       .apiKey(apiKey)\n       .modelName(GPT_4_O_MINI)\n       .build();\n   ```\n\n2. Use the `generate` method to initiate a chat:\n   ```java\n   String answer = model.generate(\"Say 'Hello World'\");\n   ```\n\n3. Print the response:\n   ```java\n   System.out.println(answer); // Hello World\n   ```",
+        "contexts": [
+            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build(); Now, it is time to chat! java String answer = model.generate(\"Say 'Hello World'\"); System.out.println(answer); // Hello World"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192450,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning",
+        "uid": 9
+    },
+    {
+        "question": "How are documents split in the system?",
+        "answer": "Documents are split into smaller segments using multiple splitting algorithms.",
+        "contexts": [
+            "- Splitting documents into smaller segments using multiple splitting algorithms"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning",
+        "uid": 10
+    },
+    {
+        "question": "What is the recommended way to store API keys?",
+        "answer": "The recommended way to store API keys is in environment variables.",
+        "contexts": [
+            "It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192449,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning",
+        "uid": 11
+    },
+    {
+        "question": "What does the `langchain4j-core` module define?",
+        "answer": "The `langchain4j-core` module defines core abstractions such as `ChatLanguageModel` and `EmbeddingStore`, and their APIs.",
+        "contexts": [
+            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192458,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 12
+    },
+    {
+        "question": "What does LangChain4j offer for API usage?",
+        "answer": "LangChain4j offers a unified API to avoid the need for learning and implementing specific APIs for each LLM provider or embedding store.",
+        "contexts": [
+            "Here's how: 1. **Unified APIs:** LLM providers (like OpenAI or Google Vertex AI) and embedding (vector) stores (such as Pinecone or Milvus) use proprietary APIs. LangChain4j offers a unified API to avoid the need for learning and implementing specific APIs for each of them. To experiment with different LLMs or embedding stores, you can easily switch between them without the need to rewrite your code."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192452,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 13
+    },
+    {
+        "question": "What modules does LangChain4j library have?",
+        "answer": "The LangChain4j library has the following modules:\n- `langchain4j-core` module, which defines core abstractions and their APIs.\n- The main `langchain4j` module, containing tools like document loaders, chat memory implementations, and high-level features like AI Services.\n- A wide array of `langchain4j-{integration}` modules, each providing integration with various LLM providers and embedding stores.",
+        "contexts": [
+            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs.\n- The main `langchain4j` module, containing useful tools like document loaders, [chat memory](/tutorials/chat-memory) implementations as well as a high-level features like [AI Services](/tutorials/ai-services).\n- A wide array of `langchain4j-{integration}` modules, each providing integration with various LLM providers and embedding stores into LangChain4j."
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192458,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning",
+        "uid": 14
+    },
+    {
+        "question": "How are documents imported in the system?",
+        "answer": "Documents are imported in the system from multiple sources such as the file system, URL, GitHub, Azure Blob Storage, and Amazon S3, and can be of various types including TXT, PDFs, DOC, PPT, and XLS.",
+        "contexts": [
+            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning",
+        "uid": 15
+    },
+    {
+        "question": "What are some use cases for custom AI chatbots?",
+        "answer": "Some use cases for custom AI chatbots include: \n\n1. Customer support chatbots that can politely answer customer questions, take orders, change orders, and cancel orders.\n2. Educational assistants that can teach various subjects, explain unclear parts, and assess a user's understanding or knowledge.",
+        "contexts": [
+            "You want to implement a custom AI powered chatbot that has access to your data and behaves the way you want it: Customer support chatbot that can: politely answer customer questions take /change/cancel orders Educational assistant that can: Teach various subjects Explain unclear parts Assess user's understanding/knowledge"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192459,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 16
+    },
+    {
+        "question": "How do I create an OpenAiChatModel instance?",
+        "answer": "To create an OpenAiChatModel instance, you need to use the builder pattern. First, set up the key, then use the following code: `OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();`.",
+        "contexts": [
+            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192450,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 17
+    },
+    {
+        "question": "How do I set my OpenAI API key in Java?",
+        "answer": "To set your OpenAI API key in Java, you should store your API key in an environment variable. You can then access it in your Java code using the following line: `String apiKey = System.getenv(\"OPENAI_API_KEY\");`. This approach helps reduce the risk of exposing your API key publicly.",
+        "contexts": [
+            "Then, import your OpenAI API key. It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly. java String apiKey = System.getenv(\"OPENAI_API_KEY\");"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192449,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 18
+    },
+    {
+        "question": "What file types can be imported?",
+        "answer": "TXT, PDFs, DOC, PPT, XLS",
+        "contexts": [
+            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+        ],
+        "metadata": [
+            {
+                "pk": 453774234489192456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking",
+        "uid": 19
+    }
+]
