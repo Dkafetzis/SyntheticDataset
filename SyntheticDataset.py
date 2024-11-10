@@ -1,11 +1,7 @@
 import os
 import pandas as pd
-from datasets.utils.py_utils import glob_pattern_to_regex
 
 from langchain_community.document_loaders import DirectoryLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_milvus import Milvus
 from langchain_openai import OpenAIEmbeddings
@@ -17,8 +13,14 @@ os.environ["OPENAI_API_KEY"] = "sk-proj-2nopTCnRAInBde7KQ9J3z334Qm1JUb0i3PyHa-Pq
 pd.set_option("display.max_colwidth", None)
 
 loader = DirectoryLoader("/home/dkafetzis/Documents/langchain4j/docs/docs", glob="*.md")
+loader2 = DirectoryLoader("/home/dkafetzis/Documents/langchain4j/docs/docs/integrations", glob="**/*.md")
+loader3 = DirectoryLoader("/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials", glob="*.md")
+loader4 = DirectoryLoader("/home/dkafetzis/Documents/langchain4j/docs/docs/useful-materials", glob="*.mdx")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=20)
 documents = loader.load_and_split(text_splitter)
+documents += loader2.load_and_split(text_splitter)
+documents += loader3.load_and_split(text_splitter)
+documents += loader4.load_and_split(text_splitter)
 
 
 # Load chunks into a vector database
@@ -43,7 +45,7 @@ generator = SimpleDatasetGenerator(
 
 synthetic_dataset = generator.generate(
     embedding_vector_size = 1536,
-    num_questions = 20,
+    num_questions = 200,
 )
 
 with open('synthetic_dataset.json', 'w') as outfile:
