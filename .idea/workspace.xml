@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b4980c4-186f-4529-91e1-97d6734bae62" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SyntheticDataset.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SyntheticDataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SyntheticDataset.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SyntheticDataset.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SyntheticDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/SyntheticDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milvus_vectorstore.db" beforeDir="false" afterPath="$PROJECT_DIR$/milvus_vectorstore.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/synthetic_dataset.json" beforeDir="false" afterPath="$PROJECT_DIR$/synthetic_dataset.old.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dkafetzis&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dkafetzis/SyntheticDataset.git&quot;,
+    &quot;accountId&quot;: &quot;4bbf9c64-4be3-45fd-b609-78035c604a8c&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -43,12 +55,13 @@
     &quot;Python.SyntheticDataset (2).executor&quot;: &quot;Run&quot;,
     &quot;Python.SyntheticDataset.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -60,7 +73,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="OPENAI_API_KEY" value="" />
+        <env name="OPENAI_API_KEY" value="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" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -121,6 +134,7 @@
       <workItem from="1730999849987" duration="1876000" />
       <workItem from="1731009361393" duration="1120000" />
       <workItem from="1731010644752" duration="1427000" />
+      <workItem from="1731237824067" duration="3716000" />
     </task>
     <servers />
   </component>
@@ -132,7 +146,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SyntheticDataset.py</url>
-          <line>51</line>
+          <line>57</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -140,6 +154,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SyntheticDataset$SyntheticDataset__2_.coverage" NAME="SyntheticDataset (2) Coverage Results" MODIFIED="1731011320972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SyntheticDataset$SyntheticDataset.coverage" NAME="SyntheticDataset Coverage Results" MODIFIED="1731010250675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SyntheticDataset$SyntheticDataset.coverage" NAME="SyntheticDataset Coverage Results" MODIFIED="1731241380512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
