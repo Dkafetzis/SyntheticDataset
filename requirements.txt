@@ -1,0 +1,7 @@
+langchain
+langchain_community
+langchain_milvus
+langchain_openai
+unstructured[md]
+pandas
+continuous_eval
