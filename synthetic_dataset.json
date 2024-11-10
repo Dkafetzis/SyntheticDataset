@@ -1,18 +1,283 @@
 [
     {
-        "question": "What does the `langchain4j-core` module define?",
-        "answer": "The `langchain4j-core` module defines core abstractions such as `ChatLanguageModel` and `EmbeddingStore`, and their APIs.",
+        "question": "What are some use cases for custom AI chatbots?",
+        "answer": "Some use cases for custom AI chatbots include:\n\n1. Customer Support: A chatbot can politely answer customer questions, take orders, change orders, and cancel orders, providing efficient and effective customer service.\n\n2. Educational Assistance: A chatbot can teach various subjects, explain unclear parts, and assess a user's understanding or knowledge, serving as a helpful educational tool.",
         "contexts": [
-            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs."
+            "You want to implement a custom AI powered chatbot that has access to your data and behaves the way you want it: Customer support chatbot that can: politely answer customer questions take /change/cancel orders Educational assistant that can: Teach various subjects Explain unclear parts Assess user's understanding/knowledge"
         ],
         "metadata": [
             {
-                "pk": 453774234489192458,
+                "pk": 453834543159050251,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 0
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the default thread cache duration?",
+        "answer": "The default thread cache duration is 1 second.",
+        "contexts": [
+            "Threads are cached for 1 second."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050271,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/1-in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can I use a custom embedding model?",
+        "answer": "To use a custom embedding model, you need to follow these steps:\n\n1. Add the dependency for the custom embedding model in your project by including the following in your configuration:\n   ```xml\n   <dependency>\n       <groupId>dev.langchain4j</groupId>\n       <artifactId>langchain4j-embeddings</artifactId>\n       <version>0.35.0</version>\n   </dependency>\n   ```\n\n2. Specify the paths to your model and tokenizer files. For example:\n   ```java\n   String pathToModel = \"/home/langchain4j/model.onnx\";\n   String pathToTokenizer = \"/home/langchain4j/tokenizer.json\";\n   ```\n\n3. Choose a pooling mode for the embedding model. In this example, `PoolingMode.MEAN` is used:\n   ```java\n   PoolingMode poolingMode = PoolingMode.MEAN;\n   ```\n\n4. Create an instance of the `OnnxEmbeddingModel` using the specified paths and pooling mode:\n   ```java\n   EmbeddingModel embeddingModel = new OnnxEmbeddingModel(pathToModel, pathToTokenizer, poolingMode);\n   ```\n\n5. Use the `embed` method of the `embeddingModel` to generate an embedding for a given input, such as \"test\":\n   ```java\n   Response response = embeddingModel.embed(\"test\");\n   ```\n\n6. Retrieve the embedding from the response:\n   ```java\n   Embedding embedding = response.content();\n   ```\n\nBy following these steps, you can use a custom embedding model in your application.",
+        "contexts": [
+            "Example of using custom embedding model:\nxml\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-embeddings</artifactId>\n    <version>0.35.0</version>\n</dependency>\n```java\nString pathToModel = \"/home/langchain4j/model.onnx\";\nString pathToTokenizer = \"/home/langchain4j/tokenizer.json\";\nPoolingMode poolingMode = PoolingMode.MEAN;\nEmbeddingModel embeddingModel = new OnnxEmbeddingModel(pathToModel, pathToTokenizer, poolingMode);\n\nResponse response = embeddingModel.embed(\"test\");\nEmbedding embedding = response.content();\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050272,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/1-in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Where is GoogleCustomWebSearchEngine built?",
+        "answer": "GoogleCustomWebSearchEngine is built using the builder pattern with the method `GoogleCustomWebSearchEngine.builder()`.",
+        "contexts": [
+            "\"WebSearchEngine googleSearchEngine = GoogleCustomWebSearchEngine.builder() .apiKey(System.getenv(\"GOOGLE_API_KEY\")) .csi(System.getenv(\"GOOGLE_SEARCH_ENGINE_ID\")) .build();\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050545,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do you configure logging in Spring Boot?",
+        "answer": "Logging in Spring Boot is configured in the application.properties file.",
+        "contexts": [
+            "logging is configured in the application.properties file:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050552,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/logging.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is vector search in information retrieval?",
+        "answer": "Vector search, also known as \"semantic search\", is a method in information retrieval where text documents are converted into vectors of numbers using embedding models. It finds and ranks documents based on the cosine similarity or other similarity/distance measures between the query vector and document vectors, thus capturing deeper semantic meanings.",
+        "contexts": [
+            "- Vector search, also known as \"semantic search\". Text documents are converted into vectors of numbers using embedding models. It then finds and ranks documents based on the cosine similarity or other similarity/distance measures between the query vector and document vectors, thus capturing deeper semantic meanings."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050527,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the purpose of the attributes map?",
+        "answer": "The purpose of the attributes map is to allow passing information between the onRequest, onResponse, and onError methods.",
+        "contexts": [
+            "The attributes map allows passing information between the onRequest, onResponse, and onError methods."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050554,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/observability.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can you enable safePrompt in Mistral models?",
+        "answer": "You can enable safePrompt in Mistral models by setting the safePrompt parameter in the MistralAiChatModel builder or MistralAiStreamingChatModel builder.",
+        "contexts": [
+            "You can set optionally safePrompt parameter in the MistralAiChatModel builder or MistralAiStreamingChatModel builder."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050427,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/mistral-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How are SystemMessages treated differently?",
+        "answer": "SystemMessages are treated differently in the following ways: Once added, a SystemMessage is always retained, meaning it is not removed or deleted. Only one SystemMessage can be held at a time, so there cannot be multiple SystemMessages simultaneously. If a new SystemMessage with the same content is added, it is ignored, meaning it does not replace the existing one. However, if a new SystemMessage with different content is added, it replaces the previous one, meaning the old SystemMessage is removed and the new one takes its place.",
+        "contexts": [
+            "SystemMessage is a special type of message, so it is treated differently from other message types:\n- Once added, a SystemMessage is always retained.\n- Only one SystemMessage can be held at a time.\n- If a new SystemMessage with the same content is added, it is ignored.\n- If a new SystemMessage with different content is added, it replaces the previous one."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050478,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can I balance LLM determinism and autonomy?",
+        "answer": "To balance LLM determinism and autonomy, you can adjust the temperature setting of the model. A low temperature setting will make the LLM highly deterministic, which is suitable when you want the application to control the flow and the LLM to be just one of the components. On the other hand, a higher temperature setting will allow the LLM to have more autonomy and drive the application. You can choose a mix of both approaches depending on the specific situation and requirements of your application.",
+        "contexts": [
+            "Concerning model parameters: in certain situations, you may need LLM to be highly deterministic, so you would set a low temperature. In other cases, you might opt for a higher temperature, and so on.\n\nAnother aspect to consider involves two extremes:\n- Do you prefer your application to be highly deterministic, where the application controls the flow and the LLM is just one of the components?\n- Or do you want the LLM to have complete autonomy and drive your application?\n\nOr perhaps a mix of both, depending on the situation?"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050507,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to access Quarkus DEV UI?",
+        "answer": "To access Quarkus DEV UI, run your Quarkus application with the command `quarkus dev`, then you can find it on `localhost:8080/q/dev-ui` (or wherever you deploy your application).",
+        "contexts": [
+            "The DEV UI can be accessed by running your Quarkus application with the command quarkus dev, then you can find it on localhost:8080/q/dev-ui (or wherever you deploy your application)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050483,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/3-model-parameters.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the model's name used?",
+        "answer": "gemini-1.5-flash-001",
+        "contexts": [
+            "\"modelName(\"gemini-1.5-flash-001\")\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050404,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is JSON mode in LLMs?",
+        "answer": "JSON mode in LLMs, also known as Structured Outputs, is a feature where the LLM API allows specifying a JSON schema for the desired output. When this feature is supported and enabled, the instructions are not appended to the end of the UserMessage. Instead, the JSON schema is automatically created from your POJO (Plain Old Java Object) and passed to the LLM, ensuring that the LLM adheres to this JSON schema.",
+        "contexts": [
+            "Some LLMs support JSON mode (aka Structured Outputs), where the LLM API has an option to specify a JSON schema for the desired output. If such a feature is supported and enabled, instructions will not be appended to the end of the UserMessage. In this case, the JSON schema will be automatically created from your POJO and passed to the LLM. This will guarantee that the LLM adheres to this JSON schema."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050494,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to store embeddings in Couchbase?",
+        "answer": "Embeddings can be stored in Couchbase using the add and addAll methods of the CouchbaseEmbeddingStore class.",
+        "contexts": [
+            "Embeddings generated with an embedding model can be stored in couchbase using add and addAll methods of the CouchbaseEmbeddingStore class."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050315,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What model is being used?",
+        "answer": "Yi-34B-Chat",
+        "contexts": [
+            "QianfanStreamingChatModel qianfanStreamingChatModel = QianfanStreamingChatModel.builder()\n          .apiKey(\"apiKey\")\n          .secretKey(\"secretKey\")\n          .modelName(\"Yi-34B-Chat\")\n          .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050451,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What are AI Services in LangChain4j?",
+        "answer": "AI Services in LangChain4j are a solution tailored for Java that hides the complexities of interacting with LLMs and other components behind a simple API. They are similar to Spring Data JPA or Retrofit, where you declaratively define an interface with the desired API, and LangChain4j provides an object (proxy) that implements this interface. AI Services act as a component of the service layer in an application, providing AI services.",
+        "contexts": [
+            "We propose another solution called AI Services, tailored for Java. The idea is to hide the complexities of interacting with LLMs and other components behind a simple API. This approach is very similar to Spring Data JPA or Retrofit: you declaratively define an interface with the desired API, and LangChain4j provides an object (proxy) that implements this interface. You can think of AI Service as a component of the service layer in your application. It provides AI services. Hence the name."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050489,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does sentimentAnalyzer.isPositive return for \"It's wonderful!\"?",
+        "answer": "The sentimentAnalyzer.isPositive method returns true for \"It's wonderful!\".",
+        "contexts": [
+            "boolean positive = sentimentAnalyzer.isPositive(\"It's wonderful!\");\n// true"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050495,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What types of documents can be imported?",
+        "answer": "Various types of documents can be imported, including TXT, PDFs, DOC, PPT, and XLS.",
+        "contexts": [
+            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.)"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050247,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can I use a custom embedding model?",
+        "answer": "To use a custom embedding model, you need to have your model in the ONNX format. You should specify the path to your model and tokenizer files. For example, you can set the path to your model as \"/home/langchain4j/model.onnx\" and the path to your tokenizer as \"/home/langchain4j/tokenizer.json\". You also need to define a pooling mode, such as `PoolingMode.MEAN`. Then, you can create an instance of `OnnxEmbeddingModel` using these paths and the pooling mode. Finally, you can use the `embed` method of the `embeddingModel` instance to embed a string, such as \"test\", and retrieve the embedding from the response.",
+        "contexts": [
+            "Many models (e.g., from Hugging Face) can be used, as long as they are in the ONNX format.\n\nExample of using custom embedding model:\n```java\nString pathToModel = \"/home/langchain4j/model.onnx\";\nString pathToTokenizer = \"/home/langchain4j/tokenizer.json\";\nPoolingMode poolingMode = PoolingMode.MEAN;\nEmbeddingModel embeddingModel = new OnnxEmbeddingModel(pathToModel, pathToTokenizer, poolingMode);\n\nResponse response = embeddingModel.embed(\"test\");\nEmbedding embedding = response.content();\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050272,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/1-in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the default modelCachePath in Jlama?",
+        "answer": "The default modelCachePath in Jlama is ~/.jlama.",
+        "contexts": [
+            "modelCachePath parameter, which allows you to specify a path to a directory where the model will be cached once downloaded. Default is ~/.jlama."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050412,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/jlama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
     },
     {
         "question": "What is the goal of LangChain4j?",
@@ -22,42 +287,1817 @@
         ],
         "metadata": [
             {
-                "pk": 453774234489192451,
+                "pk": 453834543159050242,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 1
+        "question_type": "Single Hop Fact Seeking"
     },
     {
-        "question": "What file types can be imported?",
-        "answer": "TXT, PDFs, DOC, PPT, XLS",
+        "question": "What type is the 'embedding' column?",
+        "answer": "The 'embedding' column is of type VECTOR(*, FLOAT32).",
         "contexts": [
-            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+            "embedding VECTOR(*, FLOAT32) Stores the embedding"
         ],
         "metadata": [
             {
-                "pk": 453774234489192456,
+                "pk": 453834543159050328,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/oracle.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do you remove embeddings by ID?",
+        "answer": "To remove embeddings by ID, you use the method `embeddingStore.remove(embeddingMatch.id())`.",
+        "contexts": [
+            "Couchbase embedding store also supports removing embeddings by their identifiers, for example:\njava\nembeddingStore.remove(embeddingMatch.id())"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050316,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the purpose of the attributes map?",
+        "answer": "The purpose of the attributes map is to allow passing information between the onRequest, onResponse, and onError methods.",
+        "contexts": [
+            "The attributes map allows passing information between the onRequest, onResponse, and onError methods."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050554,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/observability.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to find a number's square root?",
+        "answer": "To find a number's square root, you can use the function `squareRoot(double x)`, which returns the square root of the given number `x`.",
+        "contexts": [
+            "```\ndouble squareRoot(double x) {\n    return Math.sqrt(x);\n}\n```\n\n```\n- tools:\n    - squareRoot(double x): Returns a square root of a given number\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050512,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Can Gemini describe an image?",
+        "answer": "Yes, Gemini can describe an image as it is a multimodal model that accepts images as input.",
+        "contexts": [
+            "Gemini is a multimodal model which accepts text, but also images, audio and video files, as well as PDFs in input."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050395,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does the ContentRetriever use to retrieve content?",
+        "answer": "The ContentRetriever uses a given Query to retrieve content.",
+        "contexts": [
+            "ContentRetriever retrieves Contents from an underlying data source using a given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050543,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Gemini model's version used here?",
+        "answer": "The Gemini model's version used here is \"gemini-1.5-flash\".",
+        "contexts": [
+            "ChatLanguageModel gemini = GoogleAiGeminiChatModel.builder()\n    .apiKey(System.getenv(\"GEMINI_AI_KEY\"))\n    .modelName(\"gemini-1.5-flash\")\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050381,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to initialize WeatherForecastAssistant?",
+        "answer": "To initialize WeatherForecastAssistant, you need to use the AiServices.builder method with WeatherForecastAssistant.class as the parameter. Then, you set the chatLanguageModel to gemini and call the build() method.",
+        "contexts": [
+            "WeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to store embeddings in Couchbase?",
+        "answer": "Embeddings can be stored in Couchbase using the add and addAll methods of the CouchbaseEmbeddingStore class.",
+        "contexts": [
+            "Embeddings generated with an embedding model can be stored in couchbase using add and addAll methods of the CouchbaseEmbeddingStore class."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050315,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Maven version for ChatGLM?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-chatglm</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050361,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/chatglm.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What colors are in sunlight?",
+        "answer": "Sunlight is comprised of all the colors of the rainbow.",
+        "contexts": [
+            "\"The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight is comprised of all the colors of the rainbow.\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050463,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/vertex-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does AI Services handle?",
+        "answer": "AI Services handle the most common operations, which include formatting inputs for the LLM and parsing outputs from the LLM.",
+        "contexts": [
+            "AI Services handle the most common operations:\n- Formatting inputs for the LLM\n- Parsing outputs from the LLM"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050490,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is fibonacci(22) - ackermann(3, 4)?",
+        "answer": "17586",
+        "contexts": [
+            "The result offibonacci(22) - ackermann(3, 4)` is 17586."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050380,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does the ContentRetriever use to retrieve content?",
+        "answer": "The ContentRetriever uses a given Query to retrieve content.",
+        "contexts": [
+            "ContentRetriever retrieves Contents from an underlying data source using a given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050543,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the timeout duration?",
+        "answer": "The timeout duration is 60 seconds.",
+        "contexts": [
+            "The maximum time allowed for the API call to complete. \n Duration \n PT60S "
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050434,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What search engines are supported by Langchain4j?",
+        "answer": "Langchain4j supports the following search engines: Google Web Search, Google News, Bing, Bing News, and Baidu. Additionally, any other engine that returns the organic_results array and the organic result has title, link, and snippet is supported by this library even if not listed above.",
+        "contexts": [
+            "Available engines in Langchain4j\n\nSearchApi Engine \n Available \n \n Google Web Search \n \u2705 \n \n Google News \n \u2705 \n \n Bing \n \u2705 \n \n Bing News \n \u2705 \n \n Baidu \n \u2705\n\nAny other engine that returns the organic_results array and the organic result has title, link, and snippet is supported by this library even if not listed above."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050468,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/web-search-engines/searchapi.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do you remove all embeddings?",
+        "answer": "To remove all embeddings, you use the method `embeddingStore.removeAll();`.",
+        "contexts": [
+            "Or, to remove all embeddings:\njava\nembeddingStore.removeAll();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050317,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is fibonacci(22) - ackermann(3, 4)?",
+        "answer": "17586",
+        "contexts": [
+            "```\nThe result offibonacci(22) - ackermann(3, 4)` is 17586.\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050380,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does HtmlToTextDocumentTransformer do?",
+        "answer": "HtmlToTextDocumentTransformer extracts desired text content and metadata entries from the raw HTML.",
+        "contexts": [
+            "Currently, the only implementation provided out-of-the-box is HtmlToTextDocumentTransformer in the langchain4j-document-transformer-jsoup module, which can extract desired text content and metadata entries from the raw HTML."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050536,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is an AiMessage?",
+        "answer": "An AiMessage is a message that was generated by the AI, usually in response to the UserMessage.",
+        "contexts": [
+            "AiMessage: This is a message that was generated by the AI, usually in response to the UserMessage."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050471,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/1-chat-and-language-models.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does Zhipu AI support?",
+        "answer": "Zhipu AI supports text and image.",
+        "contexts": [
+            "Zhipu AI \n \u2705 \n \u2705 \n \n text, image \n \u2705"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050408,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/index.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the default thread cache duration?",
+        "answer": "The default thread cache duration is 1 second.",
+        "contexts": [
+            "Threads are cached for 1 second."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050271,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/1-in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to deserialize an embedding store?",
+        "answer": "To deserialize an embedding store, you can use the method `InMemoryEmbeddingStore.fromFile(filePath)`.",
+        "contexts": [
+            "InMemoryEmbeddingStore deserializedStore = InMemoryEmbeddingStore.fromFile(filePath);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050304,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/1-in-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the purpose of the attributes map?",
+        "answer": "The purpose of the attributes map is to allow passing information between the onRequest, onResponse, and onError methods.",
+        "contexts": [
+            "The attributes map allows passing information between the onRequest, onResponse, and onError methods."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050554,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/observability.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you need to use the AiServices builder for the WeatherForecastAssistant class and specify the chat language model as \"gemini\".",
+        "contexts": [
+            "WeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Why is an eviction policy necessary?",
+        "answer": "An eviction policy is necessary to fit within the LLM's context window, as there is a cap on the number of tokens the LLM can process at once. It also helps to control the cost, as each token has a cost, making each call to the LLM progressively more expensive. Additionally, it is needed to control the latency, as the more tokens are sent to the LLM, the more time it takes to process them.",
+        "contexts": [
+            "- To fit within the LLM's context window. There is a cap on the number of tokens LLM can process at once. At some point, conversation might exceed this limit. In such cases, some message(s) should be evicted. Usually, the oldest message(s) are evicted, but more sophisticated algorithms can be implemented if needed.\n- To control the cost. Each token has a cost, making each call to the LLM progressively more expensive. Evicting unnecessary messages reduces the cost.\n- To control the latency. The more tokens are sent to the LLM, the more time it takes to process them."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050477,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can concurrent calls affect ChatMemory?",
+        "answer": "Concurrent calls can lead to corrupted ChatMemory.",
+        "contexts": [
+            "Please note that AI Service should not be called concurrently for the same @MemoryId, as it can lead to corrupted ChatMemory."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050503,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do I find the project number?",
+        "answer": "You can find the project number in the Google Cloud console, or by running the command `gcloud projects describe your-project-id`.",
+        "contexts": [
+            "You can find the project number in the Google Cloud console, or by running gcloud projects describe your-project-id."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050462,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/vertex-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the weather in Tokyo?",
+        "answer": "The weather in Tokyo is warm with a temperature of 32 degrees.",
+        "contexts": [
+            "WeatherForecast getForecast(\n        @P(\"Location to get the forecast for\") String location) {\n        if (location.equals(\"Tokyo\")) {\n            return new WeatherForecast(\"Tokyo\", \"warm\", 32);\n        } else {\n            return new WeatherForecast(\"Unknown\", \"unknown\", 0);\n        }\n    }"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050370,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What examples are given for classification?",
+        "answer": "The examples given for classification are \"classification using LLM\" and \"classification using embeddings.\"",
+        "contexts": [
+            "Example of classification using LLM\n\nExample of classification using embeddings"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050548,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/classification.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do I set the API key?",
+        "answer": "To set the API key, you need to assign your API key to the variable `AZURE_OPENAI_KEY` in the configuration line `langchain4j.azure-open-ai.image-model.api-key=${AZURE_OPENAI_KEY}`.",
+        "contexts": [
+            "properties\nlangchain4j.azure-open-ai.image-model.api-key=${AZURE_OPENAI_KEY}"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050342,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/image-models/azure-dall-e.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does CompressingQueryTransformer do?",
+        "answer": "CompressingQueryTransformer uses an LLM to compress the given Query and previous conversation into a standalone Query.",
+        "contexts": [
+            "CompressingQueryTransformer uses an LLM to compress the given Query and previous conversation into a standalone Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050542,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do you remove all embeddings?",
+        "answer": "To remove all embeddings, you use the method `embeddingStore.removeAll();`.",
+        "contexts": [
+            "Or, to remove all embeddings:\njava\nembeddingStore.removeAll();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050317,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is fibonacci(22) - ackermann(3, 4)?",
+        "answer": "17586",
+        "contexts": [
+            "The result offibonacci(22) - ackermann(3, 4)` is 17586."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050380,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How many tokens can the API handle per call?",
+        "answer": "The API can handle a total of 20,000 tokens per call.",
+        "contexts": [
+            "The embedding API is limited to a total of 20,000 tokens per call (across all segments)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050280,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/google-vertex-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to load documents recursively?",
+        "answer": "To load documents recursively, you can use the `FileSystemDocumentLoader.loadDocumentsRecursively` method, specifying the directory path (e.g., \"/home/langchain4j\") and a document parser (e.g., `new TextDocumentParser()`).",
+        "contexts": [
+            "List documents = FileSystemDocumentLoader.loadDocumentsRecursively(\"/home/langchain4j\", new TextDocumentParser());"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050535,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does LanguageModelQueryRouter use to route queries?",
+        "answer": "LanguageModelQueryRouter uses the LLM to decide where to route the given Query.",
+        "contexts": [
+            "LanguageModelQueryRouter uses the LLM to decide where to route the given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050546,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What modalities might content support in the future?",
+        "answer": "In the future, content might support modalities such as images, audio, and video.",
+        "contexts": [
+            "Currently, it is limited to text content (i.e., TextSegment), but in the future it may support other modalities (e.g., images, audio, video, etc.)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050543,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can you derive a JSON schema?",
+        "answer": "You can derive a JSON schema from your own Java classes.",
+        "contexts": [
+            "Instead of building the JSON schema yourself, you can also derive a schema from your own Java classes."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050374,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you need to use the AiServices builder method with the WeatherForecastAssistant class and specify the chatLanguageModel as gemini. The code snippet for this initialization is:\n\n```java\nWeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();\n```",
+        "contexts": [
+            "// An interface contract, to interact with Gemini\n\nWeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to calculate square root using the tool?",
+        "answer": "To calculate the square root using the tool, you can use the function `squareRoot(double x)`, which returns the square root of a given number. For example, to find the square root of 475695037565, you would execute `squareRoot(475695037565)`, and it would return the result, which is 689706.486532.",
+        "contexts": [
+            "```\ndouble squareRoot(double x) {\n    return Math.sqrt(x);\n}\n```\n\n```\n- tools:\n    - squareRoot(double x): Returns a square root of a given number\n```\n\n```\n- AiMessage:\n    - toolExecutionRequests:\n        - squareRoot(475695037565)\n```\n\n```\n- AiMessage:\n    - text: The square root of 475695037565 is 689706.486532.\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050512,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What type is the 'embedding' column?",
+        "answer": "The 'embedding' column is of type VECTOR(*, FLOAT32).",
+        "contexts": [
+            "embedding VECTOR(*, FLOAT32) Stores the embedding"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050328,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/oracle.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the forecasted morning temperature in Osaka?",
+        "answer": "The forecasted morning temperature in Osaka is 18\u00b0C (64\u00b0F).",
+        "contexts": [
+            "Morning: The day dawns bright and clear in Osaka, with crisp autumn air and sunny skies. Expect temperatures to hover around 18\u00b0C (64\u00b0F) as you head out for your morning stroll through Namba."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050376,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the weather in Tokyo?",
+        "answer": "The weather in Tokyo is warm with a temperature of 32 degrees.",
+        "contexts": [
+            "WeatherForecast getForecast(\n        @P(\"Location to get the forecast for\") String location) {\n        if (location.equals(\"Tokyo\")) {\n            return new WeatherForecast(\"Tokyo\", \"warm\", 32);\n        } \n    }"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050370,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Can AI Service handle concurrent calls for the same user?",
+        "answer": "No, AI Service should not be called concurrently for the same @MemoryId, as it can lead to corrupted ChatMemory. Currently, AI Service does not implement any mechanism to prevent concurrent calls for the same @MemoryId.",
+        "contexts": [
+            "Please note that AI Service should not be called concurrently for the same @MemoryId, as it can lead to corrupted ChatMemory. Currently, AI Service does not implement any mechanism to prevent concurrent calls for the same @MemoryId."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050503,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Where was John Doe born?",
+        "answer": "John Doe was born at 345 Whispering Pines Avenue, a quaint street nestled in the heart of Springfield.",
+        "contexts": [
+            "\"He was welcomed into the world at 345 Whispering Pines Avenue a quaint street nestled in the heart of Springfield\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050496,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What happens if a vector index name is missing?",
+        "answer": "If a vector index name is missing, the store will attempt to create a new index with default configuration based on the provided initialization settings.",
+        "contexts": [
+            "If provided with a name for vector index that does not exist on the cluster, the store will attempt to create a new index with default configuration based on the provided initialization settings."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050314,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do I use the ONNX scoring model?",
+        "answer": "To use the ONNX scoring model, you need to follow these steps:\n\n1. Specify the path to your model and tokenizer files. For example:\n   ```java\n   String pathToModel = \"/home/langchain4j/model.onnx\";\n   String pathToTokenizer = \"/home/langchain4j/tokenizer.json\";\n   ```\n\n2. Create an instance of the `OnnxScoringModel` by passing the paths to the model and tokenizer:\n   ```java\n   OnnxScoringModel scoringModel = new OnnxScoringModel(pathToModel, pathToTokenizer);\n   ```\n\n3. Use the `score` method of the `OnnxScoringModel` instance to score a query against a passage:\n   ```java\n   Response response = scoringModel.score(\"query\", \"passage\");\n   ```\n\n4. Retrieve the score from the response:\n   ```java\n   Double score = response.content();\n   ```\n\nThis process will allow you to use the ONNX scoring model for reranking purposes.",
+        "contexts": [
+            "LangChain4j provides local scoring (reranking) models, powered by ONNX runtime, running in the same Java process. By default, scoring (reranking) model uses the CPU. ```java String pathToModel = \"/home/langchain4j/model.onnx\"; String pathToTokenizer = \"/home/langchain4j/tokenizer.json\"; OnnxScoringModel scoringModel = new OnnxScoringModel(pathToModel, pathToTokenizer); Response response = scoringModel.score(\"query\", \"passage\"); Double score = response.content(); ```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050457,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the timeout duration?",
+        "answer": "The timeout duration is 60 seconds.",
+        "contexts": [
+            "The maximum time allowed for the API call to complete. \n Duration \n PT60S "
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050434,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you use the AiServices.builder method with WeatherForecastAssistant.class as a parameter, then specify the chatLanguageModel as gemini, and finally call the build() method.",
+        "contexts": [
+            "WeatherForecastAssistant forecastAssistant = AiServices.builder(WeatherForecastAssistant.class).chatLanguageModel(gemini).build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to deserialize an embedding store?",
+        "answer": "To deserialize an embedding store, you can use the method `InMemoryEmbeddingStore.fromFile(filePath)`.",
+        "contexts": [
+            "InMemoryEmbeddingStore deserializedStore = InMemoryEmbeddingStore.fromFile(filePath);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050304,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/1-in-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can I authenticate with Google Cloud services?",
+        "answer": "You can authenticate with Google Cloud services by creating a service account and setting up the environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains your credentials.",
+        "contexts": [
+            "There are several ways on how your application authenticates to Google Cloud services and APIs. For example, you can create a service account and set up environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains your credentials."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050386,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Can too many instructions cause inefficiency in LLMs?",
+        "answer": "Yes, too many instructions can cause inefficiency in LLMs.",
+        "contexts": [
+            "For instance, stuffing lots of instructions into the system prompt to account for all possible scenarios is prone to errors and inefficiency. If there are too many instructions, LLMs may overlook some."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050506,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the version of langchain4j dependency?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-azure-open-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>\n\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-azure-open-ai-spring-boot-starter</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050341,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/image-models/azure-dall-e.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How does the application authenticate to Google Cloud?",
+        "answer": "The application authenticates to Google Cloud by creating a service account and setting up the environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains the credentials.",
+        "contexts": [
+            "There are several ways on how your application authenticates to Google Cloud services and APIs. For example, you can create a service account and set up environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains your credentials."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050386,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does HtmlToTextDocumentTransformer do?",
+        "answer": "HtmlToTextDocumentTransformer extracts desired text content and metadata entries from the raw HTML.",
+        "contexts": [
+            "Currently, the only implementation provided out-of-the-box is HtmlToTextDocumentTransformer in the langchain4j-document-transformer-jsoup module, which can extract desired text content and metadata entries from the raw HTML."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050536,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do I score text using LangChain4j?",
+        "answer": "To score text using LangChain4j, you need to follow these steps:\n\n1. Specify the path to your ONNX model and tokenizer files. For example:\n   ```java\n   String pathToModel = \"/home/langchain4j/model.onnx\";\n   String pathToTokenizer = \"/home/langchain4j/tokenizer.json\";\n   ```\n\n2. Create an instance of the `OnnxScoringModel` using the specified paths:\n   ```java\n   OnnxScoringModel scoringModel = new OnnxScoringModel(pathToModel, pathToTokenizer);\n   ```\n\n3. Use the `score` method of the `OnnxScoringModel` instance to score the text. You need to provide a \"query\" and a \"passage\" as arguments:\n   ```java\n   Response response = scoringModel.score(\"query\", \"passage\");\n   ```\n\n4. Retrieve the score from the response:\n   ```java\n   Double score = response.content();\n   ```\n\nThis process will give you a score for the provided query and passage using the LangChain4j's local scoring model.",
+        "contexts": [
+            "LangChain4j provides local scoring (reranking) models, powered by ONNX runtime, running in the same Java process. By default, scoring (reranking) model uses the CPU. ```java String pathToModel = \"/home/langchain4j/model.onnx\"; String pathToTokenizer = \"/home/langchain4j/tokenizer.json\"; OnnxScoringModel scoringModel = new OnnxScoringModel(pathToModel, pathToTokenizer); Response response = scoringModel.score(\"query\", \"passage\"); Double score = response.content(); ```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050457,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does the @P annotation specify?",
+        "answer": "The @P annotation specifies a description of the parameter through the mandatory field \"value\" and indicates whether the parameter is required through the optional field \"required,\" which defaults to true.",
+        "contexts": [
+            "Method parameters can optionally be annotated with @P.\n\nThe @P annotation has 2 fields\n- value: description of the parameter. Mandatory field.\n- required: whether the parameter is required, default is true. Optional field."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050521,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you need to use the AiServices.builder method with the WeatherForecastAssistant.class as a parameter, specify the chatLanguageModel as gemini, and then call the build() method.",
+        "contexts": [
+            "Let's extract the data:\n\nWeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What language model is being used here?",
+        "answer": "Yi-34B-Chat",
+        "contexts": [
+            "QianfanChatModel chatLanguageModel = QianfanChatModel.builder()\n        .apiKey(API_KEY)\n        .secretKey(SECRET_KEY)\n        .modelName(\"Yi-34B-Chat\")\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050453,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to load files from a GCS bucket?",
+        "answer": "To load files from a GCS bucket, you can use the `GoogleCloudStorageDocumentLoader` class. First, you need to create an instance of `GoogleCloudStorageDocumentLoader` by using its builder and specifying the project ID with `System.getenv(\"GCP_PROJECT_ID\")`. To load a single file, use the `loadDocument` method with the bucket name, file name, and a document parser such as `TextDocumentParser`. To load all files, you would use the same `GoogleCloudStorageDocumentLoader` instance, but the specific method to load all files is not provided in the context.",
+        "contexts": [
+            "Load a single file from a GCS bucket\n\n```java\nGoogleCloudStorageDocumentLoader gcsLoader = GoogleCloudStorageDocumentLoader.builder()\n    .project(System.getenv(\"GCP_PROJECT_ID\"))\n    .build();\n\nDocument document = gcsLoader.loadDocument(\"BUCKET_NAME\", \"FILE_NAME.txt\", new TextDocumentParser());\n```\n\nLoad all files from a GCS bucket\n\n```java\nGoogleCloudStorageDocumentLoader gcsLoader = GoogleCloudStorageDocumentLoader.builder()\n    .project(System.getenv(\"GCP_PROJECT_ID\"))\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050261,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Why is an eviction policy necessary?",
+        "answer": "An eviction policy is necessary for several reasons: to fit within the LLM's context window, as there is a cap on the number of tokens the LLM can process at once, and conversation might exceed this limit, necessitating the eviction of some messages; to control the cost, as each token has a cost, making each call to the LLM progressively more expensive, and evicting unnecessary messages reduces the cost; and to control the latency, as the more tokens are sent to the LLM, the more time it takes to process them.",
+        "contexts": [
+            "An eviction policy is necessary for several reasons:\n- To fit within the LLM's context window. There is a cap on the number of tokens LLM can process at once.\nAt some point, conversation might exceed this limit. In such cases, some message(s) should be evicted.\nUsually, the oldest message(s) are evicted, but more sophisticated algorithms can be implemented if needed.\n- To control the cost. Each token has a cost, making each call to the LLM progressively more expensive.\nEvicting unnecessary messages reduces the cost.\n- To control the latency. The more tokens are sent to the LLM, the more time it takes to process them."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050477,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the role of RetrievalAugmentor?",
+        "answer": "The role of RetrievalAugmentor is to augment a ChatMessage with relevant Contents retrieved from various sources.",
+        "contexts": [
+            "RetrievalAugmentor is an entry point into the RAG pipeline. It is responsible for augmenting a ChatMessage with relevant Contents retrieved from various sources."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050540,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to set the API key in properties?",
+        "answer": "To set the API key in properties, you need to add the following line to the application.properties file: `langchain4j.azure-open-ai.embedding-model.api-key=${AZURE_OPENAI_KEY}`. This line indicates that the API key is being set using the value of the environment variable `AZURE_OPENAI_KEY`.",
+        "contexts": [
+            "Add to the application.properties:\nproperties\nlangchain4j.azure-open-ai.embedding-model.api-key=${AZURE_OPENAI_KEY}"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050275,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/azure-open-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Why is eviction necessary for LLMs?",
+        "answer": "Eviction is necessary for LLMs to fit within the context window, control the cost, and control the latency. The context window has a cap on the number of tokens the LLM can process at once, so eviction helps manage this limit. Additionally, each token has a cost, making calls to the LLM more expensive, so evicting unnecessary messages reduces the cost. Lastly, sending more tokens to the LLM increases processing time, so eviction helps control the latency.",
+        "contexts": [
+            "- To fit within the LLM's context window. There is a cap on the number of tokens LLM can process at once. At some point, conversation might exceed this limit. In such cases, some message(s) should be evicted. \n- To control the cost. Each token has a cost, making each call to the LLM progressively more expensive. Evicting unnecessary messages reduces the cost.\n- To control the latency. The more tokens are sent to the LLM, the more time it takes to process them."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050477,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "When should indexing be performed online?",
+        "answer": "Indexing should be performed online when end users want to upload their custom documents to make them accessible to the LLM.",
+        "contexts": [
+            "However, in some scenarios, end users may want to upload their custom documents to make them accessible to the LLM. In this case, indexing should be performed online and be a part of the main application."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050529,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What priority is assigned to critical issues?",
+        "answer": "CRITICAL",
+        "contexts": [
+            "```\nPriority priority = priorityAnalyzer.analyzePriority(\"The main payment gateway is down, and customers cannot process transactions.\");\n// CRITICAL\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050495,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does EmbeddingMatch represent?",
+        "answer": "EmbeddingMatch represents a matched Embedding along with its relevance score, ID, and original embedded data (usually TextSegment).",
+        "contexts": [
+            "The EmbeddingMatch represents a matched Embedding along with its relevance score, ID, and original embedded data (usually TextSegment)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050538,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is JSON mode used for?",
+        "answer": "JSON mode is used when you always need a response from the LLM in a structured format (valid JSON).",
+        "contexts": [
+            "JSON mode is useful when you always need a response from the LLM in a structured format (valid JSON)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050497,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does CompressingQueryTransformer do?",
+        "answer": "CompressingQueryTransformer uses an LLM to compress the given Query and previous conversation into a standalone Query. This is useful when the user might ask follow-up questions that refer to information in previous questions or answers.",
+        "contexts": [
+            "CompressingQueryTransformer uses an LLM to compress the given Query and previous conversation into a standalone Query. This is useful when the user might ask follow-up questions that refer to information in previous questions or answers. When using CompressingQueryTransformer, the LLM will read the entire conversation and transform Where did he live? into Where did John Doe live?."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050542,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do you ensure strict JSON output?",
+        "answer": "To ensure strict JSON output, you can specify a JSON schema for the response.",
+        "contexts": [
+            "To ensure a stricter JSON structured output, you can specify a JSON schema for the response."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050401,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the version of the Maven Dependency?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-anthropic</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050350,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/anthropic.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do I retrieve a payment date?",
+        "answer": "To retrieve a payment date, you need to call the method `retrievePaymentDate` with the appropriate transaction ID as the argument. This method will return the payment date associated with the given transaction ID.",
+        "contexts": [
+            "\"String retrievePaymentDate(@P(\"Transaction id to search payment data\") String transactionId) {\n   return getPaymentData(transactionId, \"payment_date\");\n}\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050423,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/mistral-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do you enable logging in LangChain4j?",
+        "answer": "To enable logging in LangChain4j, you need to set .logRequests(true) and .logResponses(true) when creating an instance of the model. Additionally, ensure you have one of the SLF4J logging backends, such as Logback, in your dependencies. If using Quarkus integration, configure logging in the application.properties file by setting quarkus.langchain4j.openai.chat-model.log-requests = true and quarkus.langchain4j.openai.chat-model.log-responses = true.",
+        "contexts": [
+            "LangChain4j uses SLF4J for logging, allowing you to plug in any logging backend you prefer, such as Logback or Log4j).\n\nYou can enable logging of each request and response to the LLM by setting .logRequests(true) and .logResponses(true) when creating an instance of the model:\n\nMake sure you have one of the SLF4J logging backends in your dependencies, for example, Logback:\n\nWhen using Quarkus integration, logging is configured in the application.properties file:\n\nquarkus.langchain4j.openai.chat-model.log-requests = true\nquarkus.langchain4j.openai.chat-model.log-responses = true"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050551,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/logging.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the model name used?",
+        "answer": "The model name used is \"orca-mini\".",
+        "contexts": [
+            "String modelName = \"orca-mini\";"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050430,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do I add Redis to a Maven project?",
+        "answer": "To add Redis to a Maven project, you can include the following dependency in your project's `pom.xml` file:\n\n```xml\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-redis</artifactId>\n    <version>0.35.0</version>\n</dependency>\n```",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-redis</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050333,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/redis.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to deserialize an embedding store?",
+        "answer": "To deserialize an embedding store, you can use the method `InMemoryEmbeddingStore.fromFile(filePath)`.",
+        "contexts": [
+            "InMemoryEmbeddingStore deserializedStore = InMemoryEmbeddingStore.fromFile(filePath);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050304,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/1-in-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What type is the 'embedding' column?",
+        "answer": "The type of the 'embedding' column is VECTOR(*, FLOAT32).",
+        "contexts": [
+            "embedding VECTOR(*, FLOAT32) Stores the embedding"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050328,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/oracle.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does the temperature parameter do?",
+        "answer": "The temperature parameter controls the randomness of the output. Higher values make the output more random, while lower values make it more focused and deterministic.",
+        "contexts": [
+            "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050481,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/3-model-parameters.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Which CUDA device is used for scoring?",
+        "answer": "The CUDA device used for scoring is device 0.",
+        "contexts": [
+            "options.addCUDA(0);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050458,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How are embedding documents uniquely identified?",
+        "answer": "Embedding documents are uniquely identified by UUID-based identifiers.",
+        "contexts": [
+            "The integration automatically assigns unique UUID-based identifiers to all stored embeddings."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050314,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do I install langchain4j for a Maven project?",
+        "answer": "To install langchain4j for a Maven project, you need to add the following dependencies to your project's pom.xml file:\n\n```xml\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j</artifactId>\n    <version>0.35.0</version>\n</dependency>\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-mistral-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>\n```",
+        "contexts": [
+            "To install langchain4j to your project, add the following dependency:\n\nFor Maven project pom.xml\n\n```xml\n\ndev.langchain4j\n    langchain4j\n    0.35.0\n\ndev.langchain4j\n    langchain4j-mistral-ai\n    0.35.0\n\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050414,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/mistral-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the sidebar position for Cassandra?",
+        "answer": "5",
+        "contexts": [
+            "sidebar_position: 5"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050309,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/cassandra.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What sport do you like?",
+        "answer": "I like football.",
+        "contexts": [
+            "I like football."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050287,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/jlama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Where can I find structured outputs documentation?",
+        "answer": "Documentation on structured outputs can be found here.",
+        "contexts": [
+            "Documentation on structured outputs can be found here."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050561,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/structured-outputs.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does AiMessage contain?",
+        "answer": "AiMessage can contain either a textual response (String), or a request to execute a tool (ToolExecutionRequest).",
+        "contexts": [
+            "AiMessage can contain either a textual response (String), or a request to execute a tool (ToolExecutionRequest)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050471,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/1-chat-and-language-models.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you need to use the AiServices builder with the WeatherForecastAssistant class and specify a chat language model, in this case, \"gemini\". The initialization is completed with the build() method.",
+        "contexts": [
+            "WeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to specify JSON output in Gemini model?",
+        "answer": "To specify JSON output in the Gemini model, you need to set the `responseMimeType` to `\"application/json\"` when building the model, as shown in the provided code snippet.",
+        "contexts": [
+            "You can ask Gemini to return only valid JSON outputs:\n\n```java\nvar modelWithResponseMimeType = VertexAiGeminiChatModel.builder()\n    .project(PROJECT_ID)\n    .location(LOCATION)\n    .modelName(\"gemini-1.5-flash-001\")\n    .responseMimeType(\"application/json\")\n    .build();\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050400,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does the @P annotation specify?",
+        "answer": "The @P annotation specifies two fields: a mandatory field called \"value\" which provides a description of the parameter, and an optional field called \"required\" which indicates whether the parameter is required, with a default value of true.",
+        "contexts": [
+            "The @P annotation has 2 fields\n- value: description of the parameter. Mandatory field.\n- required: whether the parameter is required, default is true. Optional field."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050521,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How is Base64 used in the code?",
+        "answer": "Base64 is used in the code to encode data into a Base64 string. The method `Base64.getEncoder().encodeToString()` is called to convert the bytes read from `CAT_IMAGE_URL` into a Base64 encoded string.",
+        "contexts": [
+            "String base64Data = Base64.getEncoder().encodeToString(readBytes(CAT_IMAGE_URL));"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050396,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do you enable JSON mode for Azure OpenAI?",
+        "answer": "To enable JSON mode for Azure OpenAI, you use the `ChatCompletionsJsonResponseFormat()` method within the `AzureOpenAiChatModel.builder()` configuration.",
+        "contexts": [
+            "AzureOpenAiChatModel.builder()\n    ...\n    .responseFormat(new ChatCompletionsJsonResponseFormat())\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050498,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the Ollama dependency version?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-ollama</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050293,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How are tool methods annotated?",
+        "answer": "Tool methods are annotated with @Tool.",
+        "contexts": [
+            "Methods annotated with @Tool:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050518,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to filter files by extension?",
+        "answer": "To filter files by extension, you can use a glob pattern that specifies the desired file extension. In the provided context, the glob pattern \"*.txt\" is used to filter and load only the files with the \".txt\" extension from the GCS bucket.",
+        "contexts": [
+            "Load all files from a GCS bucket with a glob pattern\n\n```java\nList documents = gcsLoader.loadDocuments(\"BUCKET_NAME\", \"*.txt\", new TextDocumentParser());\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050262,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What tool is used for weather forecasts?",
+        "answer": "getWeatherForecast",
+        "contexts": [
+            "ToolSpecification weatherToolSpec = ToolSpecification.builder()\n        .name(\"getWeatherForecast\")\n        .description(\"Get the weather forecast for a location\")"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050397,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What sources can LangChain4j load documents from?",
+        "answer": "LangChain4j can load documents from the following sources: File System, URL, Amazon S3, Azure Blob Storage, GitHub, Tencent COS.",
+        "contexts": [
+            "For this example, we'll add 2 text segments, but LangChain4j offers built-in support for loading documents from various sources: File System, URL, Amazon S3, Azure Blob Storage, GitHub, Tencent COS."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050291,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/mistral-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to start multiple AI services successfully?",
+        "answer": "To start multiple AI services successfully, you need to specify which LangChain4j components to use for each service by using explicit wiring mode. This is done by annotating the services with @AiService(wiringMode = EXPLICIT).",
+        "contexts": [
+            "If you have multiple AI Services and want to wire different LangChain4j components into each of them, you can specify which components to use with explicit wiring mode (@AiService(wiringMode = EXPLICIT))."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050559,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/spring-boot-integration.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Where was John Doe born?",
+        "answer": "John Doe was born at 345 Whispering Pines Avenue, a quaint street nestled in the heart of Springfield.",
+        "contexts": [
+            "\"He was welcomed into the world at 345 Whispering Pines Avenue a quaint street nestled in the heart of Springfield\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050496,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What's the square root of 475695037565?",
+        "answer": "The square root of 475695037565 is 689706.486532.",
+        "contexts": [
+            "The square root of 475695037565 is 689706.486532."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050512,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Where was John Doe born?",
+        "answer": "John Doe was born at 345 Whispering Pines Avenue, a quaint street nestled in the heart of Springfield.",
+        "contexts": [
+            "\"He was welcomed into the world at 345 Whispering Pines Avenue a quaint street nestled in the heart of Springfield\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050496,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does LanguageModelQueryRouter use to route queries?",
+        "answer": "LanguageModelQueryRouter uses the LLM to decide where to route the given Query.",
+        "contexts": [
+            "LanguageModelQueryRouter uses the LLM to decide where to route the given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050546,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does HtmlToTextDocumentTransformer do?",
+        "answer": "HtmlToTextDocumentTransformer extracts desired text content and metadata entries from the raw HTML.",
+        "contexts": [
+            "Currently, the only implementation provided out-of-the-box is HtmlToTextDocumentTransformer in the langchain4j-document-transformer-jsoup module, which can extract desired text content and metadata entries from the raw HTML."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050536,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What happens to orphan ToolExecutionResultMessages?",
+        "answer": "Orphan ToolExecutionResultMessages are automatically evicted if an AiMessage containing ToolExecutionRequests is evicted.",
+        "contexts": [
+            "If an AiMessage containing ToolExecutionRequests is evicted, the following orphan ToolExecutionResultMessage(s) are also automatically evicted to avoid problems with some LLM providers (such as OpenAI) that prohibit sending orphan ToolExecutionResultMessage(s) in the request."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050479,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How is the assistant created?",
+        "answer": "The assistant is created using the method `AiServices.create` with the parameters `IAiService.class` and `qianfanStreamingChatModel`.",
+        "contexts": [
+            "IAiService assistant = AiServices.create(IAiService.class, qianfanStreamingChatModel);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050451,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to load specific file types from GCS?",
+        "answer": "To load specific file types from GCS, you can use a glob pattern that matches the desired file type. For example, to load all text files, you can use the pattern \"*.txt\" as shown in the method call `gcsLoader.loadDocuments(\"BUCKET_NAME\", \"*.txt\", new TextDocumentParser());`. This will load all files with the \".txt\" extension from the specified GCS bucket.",
+        "contexts": [
+            "```\nLoad all files from a GCS bucket with a glob pattern\n```\n```\nList documents = gcsLoader.loadDocuments(\"BUCKET_NAME\", \"*.txt\", new TextDocumentParser());\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050262,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How is the assistant created?",
+        "answer": "The assistant is created using the method `AiServices.create` with the parameters `IAiService.class` and `qianfanStreamingChatModel`.",
+        "contexts": [
+            "IAiService assistant = AiServices.create(IAiService.class, qianfanStreamingChatModel);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050451,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to load specific files from a GCS bucket?",
+        "answer": "To load specific files from a GCS bucket, you can use a glob pattern in the `loadDocuments` method. In the provided example, the pattern `\"*.txt\"` is used to load all text files. You can replace `\"*.txt\"` with a pattern that matches the specific files you want to load.",
+        "contexts": [
+            "```\nLoad all files from a GCS bucket with a glob pattern\n\n```java\nGoogleCloudStorageDocumentLoader gcsLoader = GoogleCloudStorageDocumentLoader.builder()\n    .project(System.getenv(\"GCP_PROJECT_ID\"))\n    .build();\n\nList documents = gcsLoader.loadDocuments(\"BUCKET_NAME\", \"*.txt\", new TextDocumentParser());\n```\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050262,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the version of Langchain4j Cohere?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-cohere</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050456,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/cohere.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Maven artifactId for CosmosDB NoSQL?",
+        "answer": "The Maven artifactId for CosmosDB NoSQL is \"langchain4j-azure-cosmos-nosql\".",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-azure-cosmos-nosql</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050308,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/azure-cosmos-nosql.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What are \"tools\" in LLMs?",
+        "answer": "\"Tools\" in LLMs, also known as \"function calling,\" are mechanisms that allow the language model to call, when necessary, one or more available tools defined by the developer. These tools can be anything, such as a web search, a call to an external API, or the execution of a specific piece of code.",
+        "contexts": [
+            "There is a concept known as \"tools,\" or \"function calling\". It allows the LLM to call, when necessary, one or more available tools, usually defined by the developer. A tool can be anything: a web search, a call to an external API, or the execution of a specific piece of code, etc."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050510,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to configure Anthropic with Spring Boot?",
+        "answer": "To configure Anthropic with Spring Boot, you need to follow these steps:\n\n1. Import the Spring Boot starter for Anthropic by adding the following dependency to your project's XML configuration:\n   ```xml\n   <dependency>\n       <groupId>dev.langchain4j</groupId>\n       <artifactId>langchain4j-anthropic-spring-boot-starter</artifactId>\n       <version>0.35.0</version>\n   </dependency>\n   ```\n\n2. Configure the `AnthropicChatModel` bean by setting the API key property:\n   ```\n   langchain4j.anthropic.chat-model.api-key = ${ANTHROPIC_API_KEY}\n   ```\n\n3. Configure the `AnthropicStreamingChatModel` bean by setting the API key property:\n   ```\n   langchain4j.anthropic.streaming-chat-model.api-key = ${ANTHROPIC_API_KEY}\n   ```\n\nMake sure to replace `${ANTHROPIC_API_KEY}` with your actual API key.",
+        "contexts": [
+            "```\nImport Spring Boot starter for Anthropic:\nxml\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-anthropic-spring-boot-starter</artifactId>\n    <version>0.35.0</version>\n</dependency>\n\nConfigure AnthropicChatModel bean:\nlangchain4j.anthropic.chat-model.api-key = ${ANTHROPIC_API_KEY}\n\nConfigure AnthropicStreamingChatModel bean:\nlangchain4j.anthropic.streaming-chat-model.api-key = ${ANTHROPIC_API_KEY}\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050351,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/anthropic.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does LangChain4j offer for chatbot development?",
+        "answer": "LangChain4j offers a wide variety of options for chatbot development.",
+        "contexts": [
+            "Whether you're building a chatbot or developing a RAG with a complete pipeline from data ingestion to retrieval, LangChain4j offers a wide variety of options."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050244,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 2
+        "question_type": "Single Hop Reasoning"
     },
     {
-        "question": "How do I set my OpenAI API key in Java?",
-        "answer": "To set your OpenAI API key in Java, you should store your API key in an environment variable named \"OPENAI_API_KEY\". Then, you can retrieve it in your Java code using the following line: `String apiKey = System.getenv(\"OPENAI_API_KEY\");`. This approach helps reduce the risk of exposing your API key publicly.",
+        "question": "What is the default modelCachePath in Jlama?",
+        "answer": "The default modelCachePath in Jlama is ~/.jlama.",
         "contexts": [
-            "Then, import your OpenAI API key. It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly. java String apiKey = System.getenv(\"OPENAI_API_KEY\");"
+            "modelCachePath parameter, which allows you to specify a path to a directory where the model will be cached once downloaded. Default is ~/.jlama."
         ],
         "metadata": [
             {
-                "pk": 453774234489192449,
+                "pk": 453834543159050412,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/jlama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to obtain a Gemini API key?",
+        "answer": "To obtain a Gemini API key, you can visit the following link: https://ai.google.dev/gemini-api/docs/api-key.",
+        "contexts": [
+            "Get an API key for free here: https://ai.google.dev/gemini-api/docs/api-key ."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050367,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is fibonacci(22) - ackermann(3, 4)?",
+        "answer": "17586",
+        "contexts": [
+            "```\nThe result offibonacci(22) - ackermann(3, 4)` is 17586.\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050380,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How is Base64 used in the code?",
+        "answer": "Base64 is used in the code to encode data into a Base64 encoded string. The method `Base64.getEncoder().encodeToString()` is called with the result of `readBytes(CAT_IMAGE_URL)` as its argument, which suggests that the data read from `CAT_IMAGE_URL` is being converted into a Base64 encoded string.",
+        "contexts": [
+            "String base64Data = Base64.getEncoder().encodeToString(readBytes(CAT_IMAGE_URL));"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050396,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do you create a ToolSpecification manually?",
+        "answer": "To create a ToolSpecification manually, you use the builder pattern in Java. You start by calling `ToolSpecification.builder()`, then set the name using `.name(\"getWeather\")`, and provide a description with `.description(\"Returns the weather forecast for a given city\")`. Next, you define the parameters using `JsonObjectSchema.builder()`, where you add a string property for \"city\" with `.addStringProperty(\"city\", \"The city for which the weather forecast should be returned\")`, and an enum property for \"temperatureUnit\" with `.addEnumProperty(\"temperatureUnit\", List.of(\"CELSIUS\", \"FAHRENHEIT\"))`. You also specify the required properties explicitly with `.required(\"city\")`. Finally, you complete the parameter definition with `.build()` and the entire ToolSpecification with another `.build()`.",
+        "contexts": [
+            "There are two ways to create a ToolSpecification:\n\nManually\njava\nToolSpecification toolSpecification = ToolSpecification.builder()\n    .name(\"getWeather\")\n    .description(\"Returns the weather forecast for a given city\")\n    .parameters(JsonObjectSchema.builder()\n        .addStringProperty(\"city\", \"The city for which the weather forecast should be returned\")\n        .addEnumProperty(\"temperatureUnit\", List.of(\"CELSIUS\", \"FAHRENHEIT\"))\n        .required(\"city\") // the required properties should be specified explicitly\n        .build())\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050515,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the version number for LangChain4j dependencies?",
+        "answer": "The version number for LangChain4j dependencies is 0.35.0.",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-open-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>\n\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j</artifactId>\n    <version>0.35.0</version>\n</dependency>\n\nimplementation 'dev.langchain4j:langchain4j-open-ai:0.35.0'\nimplementation 'dev.langchain4j:langchain4j:0.35.0'"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050240,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 3
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the input token limit?",
+        "answer": "The input token limit is 8,192.",
+        "contexts": [
+            "The most capable text model, optimized for complex tasks, including instruction, code, and reasoning. \nMax tokens input: 8,192\n\nThe most capable multimodal vision model. Optimized to support joint text, images, and video inputs. \nMax tokens input: 8,192"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050391,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How does QueryTransformer improve retrieval quality?",
+        "answer": "QueryTransformer improves retrieval quality by transforming the given Query into one or multiple Querys through various approaches. These approaches include query compression, query expansion, query re-writing, step-back prompting, and hypothetical document embeddings (HyDE).",
+        "contexts": [
+            "QueryTransformer transforms the given Query into one or multiple Querys. The goal is to enhance retrieval quality by modifying or expanding the original Query. Some known approaches to improve retrieval include: - Query compression - Query expansion - Query re-writing - Step-back prompting - Hypothetical document embeddings (HyDE)"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050541,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do LLMs improve user experience?",
+        "answer": "LLMs improve user experience by offering a way to stream the response token-by-token, allowing users to start reading the response almost immediately instead of waiting for the entire text to be generated.",
+        "contexts": [
+            "LLMs generate text one token at a time, so many LLM providers offer a way to stream the response token-by-token instead of waiting for the entire text to be generated. This significantly improves the user experience, as the user does not need to wait an unknown amount of time and can start reading the response almost immediately."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050450,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Maven dependency version for langchain4j-bedrock?",
+        "answer": "The Maven dependency version for langchain4j-bedrock is 0.35.0.",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-bedrock</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050273,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/amazon-bedrock.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does AI Services handle?",
+        "answer": "AI Services handle the most common operations, which include formatting inputs for the LLM and parsing outputs from the LLM.",
+        "contexts": [
+            "AI Services handle the most common operations:\n- Formatting inputs for the LLM\n- Parsing outputs from the LLM"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050490,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the default thread cache duration?",
+        "answer": "The default thread cache duration is 1 second.",
+        "contexts": [
+            "Threads are cached for 1 second."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050271,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-models/1-in-process.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What are the shoes for?",
+        "answer": "The shoes are for all the walking you'll be doing.",
+        "contexts": [
+            "comfortable shoes for all the walking you'll be doing."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050377,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "When should indexing be performed online?",
+        "answer": "Indexing should be performed online when end users want to upload their custom documents to make them accessible to the LLM.",
+        "contexts": [
+            "However, in some scenarios, end users may want to upload their custom documents to make them accessible to the LLM. In this case, indexing should be performed online and be a part of the main application."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050529,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to enable safe prompts in chat models?",
+        "answer": "You can enable safe prompts in chat models by setting the optionally safePrompt parameter in the MistralAiChatModel builder or MistralAiStreamingChatModel builder.",
+        "contexts": [
+            "You can set optionally safePrompt parameter in the MistralAiChatModel builder or MistralAiStreamingChatModel builder."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050427,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/mistral-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What version is the langchain4j-bedrock dependency?",
+        "answer": "The version of the langchain4j-bedrock dependency is 0.35.0.",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-bedrock</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050348,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/amazon-bedrock.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does LanguageModelQueryRouter do?",
+        "answer": "LanguageModelQueryRouter uses the LLM to decide where to route the given Query.",
+        "contexts": [
+            "LanguageModelQueryRouter uses the LLM to decide where to route the given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050546,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
     },
     {
         "question": "When did LangChain4j development start?",
@@ -67,236 +2107,726 @@
         ],
         "metadata": [
             {
-                "pk": 453774234489192454,
+                "pk": 453834543159050245,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 4
+        "question_type": "Single Hop Fact Seeking"
     },
     {
-        "question": "How many LLM providers does LangChain4j integrate with?",
-        "answer": "LangChain4j integrates with more than 15 LLM providers.",
+        "question": "What does the DefaultQueryRouter do?",
+        "answer": "The DefaultQueryRouter routes each Query to all configured ContentRetrievers.",
         "contexts": [
-            "- Integration with [15+ LLM providers](/integrations/language-models)"
+            "DefaultQueryRouter is the default implementation used in DefaultRetrievalAugmentor. It routes each Query to all configured ContentRetrievers."
         ],
         "metadata": [
             {
-                "pk": 453774234489192455,
+                "pk": 453834543159050546,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the version of langchain4j-workers-ai?",
+        "answer": "The version of langchain4j-workers-ai is 0.35.0.",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-workers-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050346,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/image-models/workers-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can multiple users have separate chat memory?",
+        "answer": "The solution to this issue is to use ChatMemoryProvider.",
+        "contexts": [
+            "The solution to this issue is to use ChatMemoryProvider:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050502,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "Where can I find MTEB leaderboard information?",
+        "answer": "You can find MTEB leaderboard information on [MTEB](https://huggingface.co/spaces/mteb/leaderboard).",
+        "contexts": [
+            "You can find MTEB leaderboard information on [MTEB](https://huggingface.co/spaces/mteb/leaderboard)."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050565,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/useful-materials/index.mdx"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can I make my LLM more deterministic?",
+        "answer": "You can make your LLM more deterministic by setting a low temperature.",
+        "contexts": [
+            "In certain situations, you may need LLM to be highly deterministic, so you would set a low temperature."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050507,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How is the retrieval augmentor created?",
+        "answer": "The retrieval augmentor is created using the `DefaultRetrievalAugmentor.builder()` method, followed by setting a `contentAggregator` and then calling the `build()` method.",
+        "contexts": [
+            "RetrievalAugmentor retrievalAugmentor = DefaultRetrievalAugmentor.builder()\n    ...\n    .contentAggregator(contentAggregator)\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050460,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/scoring-reranking-models/jina-ai.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do I add Infinispan using Maven?",
+        "answer": "To add Infinispan using Maven, you need to include the following dependency in your Maven project's `pom.xml` file:\n\n```xml\n<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-infinispan</artifactId>\n    <version>0.35.0</version>\n</dependency>\n```",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-infinispan</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050321,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/infinispan.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does the ContentRetriever use to retrieve content?",
+        "answer": "The ContentRetriever uses a given Query to retrieve content.",
+        "contexts": [
+            "ContentRetriever retrieves Contents from an underlying data source using a given Query."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050543,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does `CouchbaseContainer` initialize?",
+        "answer": "`CouchbaseContainer` initializes a dedicated Couchbase server using the testcontainers library.",
+        "contexts": [
+            "The sample source code starts a dedicated to it Couchbase server using testcontainers library:\n\n```java\nCouchbaseContainer couchbaseContainer =\n        new CouchbaseContainer(DockerImageName.parse(\"couchbase:enterprise\").asCompatibleSubstituteFor(\"couchbase/server\"))\n                .withCredentials(\"Administrator\", \"password\")\n                .withBucket(testBucketDefinition)\n                .withStartupTimeout(Duration.ofMinutes(1));\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050313,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How to load specific files from a GCS bucket?",
+        "answer": "To load specific files from a GCS bucket, you can use the `gcsLoader.loadDocuments` method with the bucket name and a pattern for the files you want to load. In the provided context, the method is used with the parameters `\"BUCKET_NAME\"` and `\"*.txt\"`, which indicates that it will load all text files from the specified bucket. To load specific files, you would replace `\"*.txt\"` with a pattern that matches the specific files you want to load.",
+        "contexts": [
+            "List documents = gcsLoader.loadDocuments(\"BUCKET_NAME\", \"*.txt\", new TextDocumentParser());"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050262,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to load a file from a GCS bucket?",
+        "answer": "To load a file from a GCS bucket, you can use the `GoogleCloudStorageDocumentLoader` class. First, create an instance of `GoogleCloudStorageDocumentLoader` using its builder, specifying the project ID with `System.getenv(\"GCP_PROJECT_ID\")`. Then, use the `loadDocument` method on the `gcsLoader` instance, providing the bucket name (\"BUCKET_NAME\"), the file name (\"FILE_NAME.txt\"), and a `TextDocumentParser` to parse the document. This will load the specified file from the GCS bucket into a `Document` object.",
+        "contexts": [
+            "Load a single file from a GCS bucket\n\n```java\nGoogleCloudStorageDocumentLoader gcsLoader = GoogleCloudStorageDocumentLoader.builder()\n    .project(System.getenv(\"GCP_PROJECT_ID\"))\n    .build();\n\nDocument document = gcsLoader.loadDocument(\"BUCKET_NAME\", \"FILE_NAME.txt\", new TextDocumentParser());\n```"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050261,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What does the @UserMessage annotation do?",
+        "answer": "The @UserMessage annotation replaces the @SystemMessage annotation and specifies a prompt template containing the variable it that refers to the only method argument. Additionally, @UserMessage can load a prompt template from resources using the syntax: @UserMessage(fromResource = \"my-prompt-template.txt\").",
+        "contexts": [
+            "We have replaced the @SystemMessage annotation with @UserMessage and specified a prompt template containing the variable it that refers to the only method argument. \n\n@UserMessage can also load a prompt template from resources: @UserMessage(fromResource = \"my-prompt-template.txt\")"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050493,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to deserialize an embedding store?",
+        "answer": "To deserialize an embedding store, you can use the method `InMemoryEmbeddingStore.fromFile(filePath)`.",
+        "contexts": [
+            "InMemoryEmbeddingStore deserializedStore = InMemoryEmbeddingStore.fromFile(filePath);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050304,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/1-in-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Why is eviction necessary for LLMs?",
+        "answer": "Eviction is necessary for LLMs to fit within the context window, control the cost, and control the latency. The context window has a cap on the number of tokens the LLM can process at once, so eviction helps manage this limit. Additionally, each token has a cost, making each call to the LLM more expensive, so evicting unnecessary messages reduces the cost. Lastly, sending more tokens to the LLM increases the time it takes to process them, so eviction helps control the latency.",
+        "contexts": [
+            "- To fit within the LLM's context window. There is a cap on the number of tokens LLM can process at once. At some point, conversation might exceed this limit. In such cases, some message(s) should be evicted. Usually, the oldest message(s) are evicted, but more sophisticated algorithms can be implemented if needed.\n- To control the cost. Each token has a cost, making each call to the LLM progressively more expensive. Evicting unnecessary messages reduces the cost.\n- To control the latency. The more tokens are sent to the LLM, the more time it takes to process them."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050477,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "Can AI Service handle concurrent calls for @MemoryId?",
+        "answer": "No, AI Service cannot handle concurrent calls for the same @MemoryId, as it can lead to corrupted ChatMemory and there is no mechanism in place to prevent such concurrent calls.",
+        "contexts": [
+            "Please note that AI Service should not be called concurrently for the same @MemoryId, as it can lead to corrupted ChatMemory. Currently, AI Service does not implement any mechanism to prevent concurrent calls for the same @MemoryId."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050503,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can chat memory improve responses?",
+        "answer": "Chat memory can improve responses by allowing the LLM to know what has been said before, which helps in maintaining context and continuity in the conversation.",
+        "contexts": [
+            "Of course, you can combine Jlama chat completion with other features like Set Model Parameters and Chat Memory to get more accurate responses.\n\nIn Chat Memory you will learn how to pass along your chat history, so the LLM knows what has been said before."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050411,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/jlama.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Maven version for the GCS document loader?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-document-loader-google-cloud-storage</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050260,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/document-loaders/google-cloud-storage.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How is Base64 used in the code?",
+        "answer": "Base64 is used in the code to encode data into a Base64 encoded string. The method `Base64.getEncoder().encodeToString()` is called with the result of `readBytes(CAT_IMAGE_URL)` as its argument, which suggests that the data read from `CAT_IMAGE_URL` is being converted into a Base64 encoded string.",
+        "contexts": [
+            "String base64Data = Base64.getEncoder().encodeToString(readBytes(CAT_IMAGE_URL));"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050396,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is a source for LLM short courses?",
+        "answer": "[DeepLearning.AI](https://www.deeplearning.ai/) is a source for LLM short courses.",
+        "contexts": [
+            "- [Short Courses](https://www.deeplearning.ai/short-courses/) by [DeepLearning.AI](https://www.deeplearning.ai/)"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050562,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/useful-materials/index.mdx"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do you use AI Services with Quarkus?",
+        "answer": "To use AI Services with Quarkus, you can utilize the LangChain4j Quarkus extension, which greatly simplifies the process. You can create a bean for AI Services and then inject it into your code wherever needed within your Quarkus application.",
+        "contexts": [
+            "In a Quarkus or Spring Boot application, this can be a bean that you can then inject into your code wherever you need AI Services. \n\nLangChain4j Quarkus extension greatly simplifies using AI Services in Quarkus applications."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050491,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to delete all embeddings in Java?",
+        "answer": "To delete all embeddings in Java, you can use the method `removeAll()` on the `embeddingStore` object, as shown in the context: `embeddingStore.removeAll();`.",
+        "contexts": [
+            "Or, to remove all embeddings:\njava\nembeddingStore.removeAll();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050317,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What parameters are needed to initialize an embedding store?",
+        "answer": "The parameters needed to initialize an embedding store are:\n- cluster connection string\n- cluster username\n- cluster password\n- name of the bucket in which embeddings should be stored\n- name of the scope in which embeddings should be stored\n- name of the collection in which embeddings should be stored\n- name of an FTS vector index to be used by the embedding store\n- dimensionality (length) of vectors to be stored",
+        "contexts": [
+            "The following parameters are required for initialization:\n- cluster connection string\n- cluster username\n- cluster password\n- name of the bucket in which embeddings should be stored\n- name of the scope in which embeddings should be stored\n- name of the collection in which embeddings should be stored\n- name of an FTS vector index to be used by the embedding store\n- dimensionality (length) of vectors to be stored"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050312,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/couchbase.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How can multiple users have separate chat memory?",
+        "answer": "The solution to this issue is to use ChatMemoryProvider.",
+        "contexts": [
+            "The solution to this issue is to use ChatMemoryProvider:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050502,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to deserialize an embedding store?",
+        "answer": "To deserialize an embedding store, you can use the method `InMemoryEmbeddingStore.fromFile(filePath)`.",
+        "contexts": [
+            "InMemoryEmbeddingStore deserializedStore = InMemoryEmbeddingStore.fromFile(filePath);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050304,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/1-in-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Default Query Transformer?",
+        "answer": "The Default Query Transformer is the default implementation used in DefaultRetrievalAugmentor, and it does not make any modifications to the Query; it just passes it through.",
+        "contexts": [
+            "DefaultQueryTransformer is the default implementation used in DefaultRetrievalAugmentor. It does not make any modifications to the Query, it just passes it through."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050541,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the goal of LangChain4j?",
+        "answer": "The goal of LangChain4j is to simplify integrating LLMs into Java applications.",
+        "contexts": [
+            "The goal of LangChain4j is to simplify integrating LLMs into Java applications."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050242,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 5
+        "question_type": "Single Hop Fact Seeking"
     },
     {
-        "question": "When did LangChain4j development start?",
-        "answer": "LangChain4j development started in early 2023.",
+        "question": "What happens to orphan ToolExecutionResultMessages?",
+        "answer": "Orphan ToolExecutionResultMessages are automatically evicted if an AiMessage containing ToolExecutionRequests is evicted.",
         "contexts": [
-            "LangChain4j began development in early 2023 amid the ChatGPT hype."
+            "If an AiMessage containing ToolExecutionRequests is evicted, the following orphan ToolExecutionResultMessage(s) are also automatically evicted to avoid problems with some LLM providers (such as OpenAI) that prohibit sending orphan ToolExecutionResultMessage(s) in the request."
         ],
         "metadata": [
             {
-                "pk": 453774234489192454,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+                "pk": 453834543159050479,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 6
+        "question_type": "Single Hop Fact Seeking"
     },
     {
-        "question": "What formats can be imported for ingestion?",
-        "answer": "TXT, PDFs, DOC, PPT, XLS",
+        "question": "What is the minimum score for results?",
+        "answer": "The minimum score for results is 0.75.",
         "contexts": [
-            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
+            ".minScore(0.75)"
         ],
         "metadata": [
             {
-                "pk": 453774234489192456,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+                "pk": 453834543159050544,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 7
+        "question_type": "Single Hop Reasoning"
     },
     {
-        "question": "How do you create an OpenAiChatModel instance?",
-        "answer": "To create an OpenAiChatModel instance, you use the builder pattern. First, you call `OpenAiChatModel.builder()`, then set the API key using `.apiKey(apiKey)`, specify the model name with `.modelName(GPT_4_O_MINI)`, and finally, call `.build()` to create the instance.",
+        "question": "What is the timeout duration?",
+        "answer": "The timeout duration is 60 seconds.",
         "contexts": [
-            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();"
+            "The maximum time allowed for the API call to complete. \n Duration \n PT60S "
         ],
         "metadata": [
             {
-                "pk": 453774234489192450,
+                "pk": 453834543159050434,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the version number of langchain4j-easy-rag?",
+        "answer": "The version number of langchain4j-easy-rag is 0.35.0.",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-easy-rag</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050531,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the model name used?",
+        "answer": "Yi-34B-Chat",
+        "contexts": [
+            "\"modelName(\"Yi-34B-Chat\")\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050451,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What data type does artistAddress use?",
+        "answer": "The data type that artistAddress uses is \"String\".",
+        "contexts": [
+            "\"private String artistAddress;\""
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050402,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is needed to use Vertex AI?",
+        "answer": "To use Vertex AI, one must first create a Google Cloud Platform account.",
+        "contexts": [
+            "To utilize Vertex AI, one must first create a Google Cloud Platform account."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050385,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "How do I create a Google Cloud account?",
+        "answer": "If you're new to Google Cloud, you can create a new account by clicking on the [create an account] button located under Get set up on Google Cloud dropdown menu on the following page.",
+        "contexts": [
+            "If you're new to Google Cloud, you can create a new account by clicking on the [create an account] button located under Get set up on Google Cloud dropdown menu on the following page:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050385,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How do I build a forecast assistant?",
+        "answer": "To build a forecast assistant, you need to use the AiServices builder for the WeatherForecastAssistant class and specify a chat language model, in this case, \"gemini\".",
+        "contexts": [
+            "Let's extract the data:\n\nWeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What does EmbeddingSearchResult contain?",
+        "answer": "EmbeddingSearchResult contains the list of EmbeddingMatches.",
+        "contexts": [
+            "The EmbeddingSearchResult represents a result of a search in an EmbeddingStore. It contains the list of EmbeddingMatches."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050538,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What happens to orphan ToolExecutionResultMessages?",
+        "answer": "Orphan ToolExecutionResultMessages are automatically evicted if an AiMessage containing ToolExecutionRequests is evicted.",
+        "contexts": [
+            "If an AiMessage containing ToolExecutionRequests is evicted, the following orphan ToolExecutionResultMessage(s) are also automatically evicted to avoid problems with some LLM providers (such as OpenAI) that prohibit sending orphan ToolExecutionResultMessage(s) in the request."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050479,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/2-chat-memory.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How can I authenticate with Google Cloud services?",
+        "answer": "You can authenticate with Google Cloud services by creating a service account and setting up the environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains your credentials.",
+        "contexts": [
+            "There are several ways on how your application authenticates to Google Cloud services and APIs. For example, you can create a service account and set up environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON file that contains your credentials."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050386,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "What is the model name used in OllamaChatModel?",
+        "answer": "The model name used in OllamaChatModel is \"llama3.1\".",
+        "contexts": [
+            "OllamaChatModel ollamaChatModel = OllamaChatModel.builder() .baseUrl(\"http://localhost:11434\") .modelName(\"llama3.1\") .temperature(0.8) .timeout(Duration.ofSeconds(60)) .build();\n\nlangchain4j.ollama.chat-model.model-name=llama3.1"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050435,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/ollama.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How does model error handling work?",
+        "answer": "The model error handling works by using the `onNextAndError` method, which takes two arguments: `System.out::print` and `Throwable::printStackTrace`. This suggests that when the model generates output, it will print the result using `System.out::print`. If an error occurs during the generation process, it will handle the error by printing the stack trace of the throwable using `Throwable::printStackTrace`.",
+        "contexts": [
+            "model.generate(\"Why is the sky blue?\", onNextAndError(System.out::print, Throwable::printStackTrace));"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050389,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Reasoning"
+    },
+    {
+        "question": "What is the Default Query Transformer?",
+        "answer": "The Default Query Transformer is the default implementation used in DefaultRetrievalAugmentor, and it does not make any modifications to the Query; it just passes it through.",
+        "contexts": [
+            "DefaultQueryTransformer is the default implementation used in DefaultRetrievalAugmentor. It does not make any modifications to the Query, it just passes it through."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050541,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to initialize a WeatherForecastAssistant?",
+        "answer": "To initialize a WeatherForecastAssistant, you need to use the AiServices builder with the WeatherForecastAssistant class and specify the chatLanguageModel as gemini. Then, call the build() method.",
+        "contexts": [
+            "Let's extract the data:\n\nWeatherForecastAssistant forecastAssistant =\n    AiServices.builder(WeatherForecastAssistant.class)\n        .chatLanguageModel(gemini)\n        .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050375,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-ai-gemini.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How to handle streaming errors with lambdas?",
+        "answer": "To handle streaming errors with lambdas, you can use the onNextAndError() method, which allows you to define actions for both the onNext() and onError() events.",
+        "contexts": [
+            "The onNextAndError() method allows you to define actions for both the onNext() and onError() events:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050486,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/4-response-streaming.md"
+            }
+        ],
+        "question_type": "Single Hop Fact Seeking"
+    },
+    {
+        "question": "How does the chat system manage memory for multiple users?",
+        "answer": "The chat system manages memory for multiple users by using a ChatMemoryProvider. This provider allows the system to create a separate chat memory for each user by using a memory ID. Specifically, it uses a lambda function `memoryId -> MessageWindowChatMemory.withMaxMessages(10)` to create a `MessageWindowChatMemory` with a maximum of 10 messages for each user. This ensures that each user has their own chat memory space, managed independently.",
+        "contexts": [
+            "```\nIAiService assistant = AiServices.builder(IAiService.class)\n          .chatLanguageModel(model) // the model\n          .chatMemory(chatMemory)  // memory\n          .build();\n```\n\n```\nIAiService assistant = AiServices.builder(IAiService.class)\n          .chatLanguageModel(model)         // the model\n          .chatMemoryProvider(memoryId -> MessageWindowChatMemory.withMaxMessages(10)) // chatMemory\n          .build();\n```",
+            "The solution to this issue is to use ChatMemoryProvider:"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050448,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/qianfan.md"
+            },
+            {
+                "pk": 453834543159050502,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            }
+        ],
+        "question_type": "Multi Hop Reasoning"
+    },
+    {
+        "question": "How does the model handle multiple tool execution requests?",
+        "answer": "The model handles multiple tool execution requests by supporting parallel function calling, allowing it to make multiple tool execution requests in a single response.",
+        "contexts": [
+            "If the LLM decides to call the tool, the returned AiMessage will contain data in the toolExecutionRequests field. Depending on the LLM, it can contain one or multiple ToolExecutionRequest objects (some LLMs support calling multiple tools in parallel).",
+            "Parallel function calling is also supported, when the model asks to make multiple tool execution requests in a single response."
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050516,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/6-tools.md"
+            },
+            {
+                "pk": 453834543159050397,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/google-vertex-ai-gemini.md"
+            }
+        ],
+        "question_type": "Multi Hop Reasoning"
+    },
+    {
+        "question": "How is an embedding store configured in Java for AI applications?",
+        "answer": "An embedding store in Java for AI applications is configured by first setting up an `OracleEmbeddingStore` using a builder pattern. This involves specifying a data source (`myDataSource`) and configuring an `EmbeddingTable` with options such as `CREATE_OR_REPLACE` for table creation, and defining the table's name (\"my_embedding_table\") along with its columns: `idColumn`, `embeddingColumn`, `textColumn`, and `metadataColumn`. Additionally, for simplicity, an in-memory embedding store can be used, which is instantiated as `InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();`. Documents are then ingested into this embedding store using `EmbeddingStoreIngestor.ingest(documents, embeddingStore);`.",
+        "contexts": [
+            "OracleEmbeddingStore embeddingStore = OracleEmbeddingStore.builder() .dataSource(myDataSource) .embeddingTable(EmbeddingTable.builder() .createOption(CREATE_OR_REPLACE) // use NONE if the table already exists .name(\"my_embedding_table\") .idColumn(\"id_column_name\") .embeddingColumn(\"embedding_column_name\") .textColumn(\"text_column_name\") .metadataColumn(\"metadata_column_name\") .build()) .build();",
+            "Now, we need to preprocess and store documents in a specialized embedding store, also known as vector database. We can use any of our 15+ supported embedding stores, but for simplicity, we will use an in-memory one: java InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>(); EmbeddingStoreIngestor.ingest(documents, embeddingStore);"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050329,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/embedding-stores/oracle.md"
+            },
+            {
+                "pk": 453834543159050532,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/7-rag.md"
+            }
+        ],
+        "question_type": "Multi Hop Fact Seeking"
+    },
+    {
+        "question": "What is the version of 'langchain4j-workers-ai' Maven dependency?",
+        "answer": "0.35.0",
+        "contexts": [
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-workers-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>",
+            "<dependency>\n    <groupId>dev.langchain4j</groupId>\n    <artifactId>langchain4j-workers-ai</artifactId>\n    <version>0.35.0</version>\n</dependency>"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050346,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/image-models/workers-ai.md"
+            },
+            {
+                "pk": 453834543159050454,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/workers-ai.md"
+            }
+        ],
+        "question_type": "Multi Hop Reasoning"
+    },
+    {
+        "question": "How do you instantiate an OpenAiChatModel with the GPT_4_O_MINI model?",
+        "answer": "To instantiate an OpenAiChatModel with the GPT_4_O_MINI model, you use the builder pattern provided by the OpenAiChatModel class. You call the `builder()` method on `OpenAiChatModel`, then set the API key using the `apiKey()` method, and specify the model name using the `modelName()` method with `GPT_4_O_MINI` as the argument. Finally, you call the `build()` method to create the instance. The API key can be retrieved from the environment variables using `System.getenv(\"OPENAI_API_KEY\")` or passed directly as a variable `apiKey`.",
+        "contexts": [
+            "```java\nChatLanguageModel model = OpenAiChatModel.builder()\n    .apiKey(System.getenv(\"OPENAI_API_KEY\"))\n    .modelName(GPT_4_O_MINI)\n    .build();\n```",
+            "OpenAiChatModel model = OpenAiChatModel.builder()\n    .apiKey(apiKey)\n    .modelName(GPT_4_O_MINI)\n    .build();"
+        ],
+        "metadata": [
+            {
+                "pk": 453834543159050490,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/tutorials/5-ai-services.md"
+            },
+            {
+                "pk": 453834543159050241,
                 "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
             }
         ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 8
+        "question_type": "Multi Hop Fact Seeking"
     },
     {
-        "question": "How to initiate a chat with the model?",
-        "answer": "To initiate a chat with the model, you need to create an instance of the OpenAiChatModel using the builder pattern, providing the API key and model name. Then, you can generate a response by calling the `generate` method with your input string. For example:\n\n1. Set up the key and create an instance of OpenAiChatModel:\n   ```java\n   OpenAiChatModel model = OpenAiChatModel.builder()\n       .apiKey(apiKey)\n       .modelName(GPT_4_O_MINI)\n       .build();\n   ```\n\n2. Use the `generate` method to initiate a chat:\n   ```java\n   String answer = model.generate(\"Say 'Hello World'\");\n   ```\n\n3. Print the response:\n   ```java\n   System.out.println(answer); // Hello World\n   ```",
+        "question": "What is the API key property for Langchain4j's streaming chat models?",
+        "answer": "The API key property for Langchain4j's streaming chat models is \"langchain4j.azure-open-ai.streaming-chat-model.api-key\" for Azure OpenAI and \"langchain4j.open-ai.streaming-chat-model.api-key\" for OpenAI.",
         "contexts": [
-            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build(); Now, it is time to chat! java String answer = model.generate(\"Say 'Hello World'\"); System.out.println(answer); // Hello World"
+            "langchain4j.azure-open-ai.streaming-chat-model.api-key=${AZURE_OPENAI_KEY}",
+            "langchain4j.open-ai.streaming-chat-model.api-key=${OPENAI_API_KEY}"
         ],
         "metadata": [
             {
-                "pk": 453774234489192450,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
-            }
-        ],
-        "question_type": "Single Hop Reasoning",
-        "uid": 9
-    },
-    {
-        "question": "How are documents split in the system?",
-        "answer": "Documents are split into smaller segments using multiple splitting algorithms.",
-        "contexts": [
-            "- Splitting documents into smaller segments using multiple splitting algorithms"
-        ],
-        "metadata": [
+                "pk": 453834543159050358,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/azure-open-ai.md"
+            },
             {
-                "pk": 453774234489192456,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
+                "pk": 453834543159050441,
+                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/integrations/language-models/open-ai.md"
             }
         ],
-        "question_type": "Single Hop Reasoning",
-        "uid": 10
-    },
-    {
-        "question": "What is the recommended way to store API keys?",
-        "answer": "The recommended way to store API keys is in environment variables.",
-        "contexts": [
-            "It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly."
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192449,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
-            }
-        ],
-        "question_type": "Single Hop Reasoning",
-        "uid": 11
-    },
-    {
-        "question": "What does the `langchain4j-core` module define?",
-        "answer": "The `langchain4j-core` module defines core abstractions such as `ChatLanguageModel` and `EmbeddingStore`, and their APIs.",
-        "contexts": [
-            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs."
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192458,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 12
-    },
-    {
-        "question": "What does LangChain4j offer for API usage?",
-        "answer": "LangChain4j offers a unified API to avoid the need for learning and implementing specific APIs for each LLM provider or embedding store.",
-        "contexts": [
-            "Here's how: 1. **Unified APIs:** LLM providers (like OpenAI or Google Vertex AI) and embedding (vector) stores (such as Pinecone or Milvus) use proprietary APIs. LangChain4j offers a unified API to avoid the need for learning and implementing specific APIs for each of them. To experiment with different LLMs or embedding stores, you can easily switch between them without the need to rewrite your code."
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192452,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 13
-    },
-    {
-        "question": "What modules does LangChain4j library have?",
-        "answer": "The LangChain4j library has the following modules:\n- `langchain4j-core` module, which defines core abstractions and their APIs.\n- The main `langchain4j` module, containing tools like document loaders, chat memory implementations, and high-level features like AI Services.\n- A wide array of `langchain4j-{integration}` modules, each providing integration with various LLM providers and embedding stores.",
-        "contexts": [
-            "- The `langchain4j-core` module, which defines core abstractions (such as `ChatLanguageModel` and `EmbeddingStore`) and their APIs.\n- The main `langchain4j` module, containing useful tools like document loaders, [chat memory](/tutorials/chat-memory) implementations as well as a high-level features like [AI Services](/tutorials/ai-services).\n- A wide array of `langchain4j-{integration}` modules, each providing integration with various LLM providers and embedding stores into LangChain4j."
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192458,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Reasoning",
-        "uid": 14
-    },
-    {
-        "question": "How are documents imported in the system?",
-        "answer": "Documents are imported in the system from multiple sources such as the file system, URL, GitHub, Azure Blob Storage, and Amazon S3, and can be of various types including TXT, PDFs, DOC, PPT, and XLS.",
-        "contexts": [
-            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192456,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Reasoning",
-        "uid": 15
-    },
-    {
-        "question": "What are some use cases for custom AI chatbots?",
-        "answer": "Some use cases for custom AI chatbots include: \n\n1. Customer support chatbots that can politely answer customer questions, take orders, change orders, and cancel orders.\n2. Educational assistants that can teach various subjects, explain unclear parts, and assess a user's understanding or knowledge.",
-        "contexts": [
-            "You want to implement a custom AI powered chatbot that has access to your data and behaves the way you want it: Customer support chatbot that can: politely answer customer questions take /change/cancel orders Educational assistant that can: Teach various subjects Explain unclear parts Assess user's understanding/knowledge"
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192459,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 16
-    },
-    {
-        "question": "How do I create an OpenAiChatModel instance?",
-        "answer": "To create an OpenAiChatModel instance, you need to use the builder pattern. First, set up the key, then use the following code: `OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();`.",
-        "contexts": [
-            "Once you've set up the key, let's create an instance of an OpenAiChatModel: java OpenAiChatModel model = OpenAiChatModel.builder() .apiKey(apiKey) .modelName(GPT_4_O_MINI) .build();"
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192450,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 17
-    },
-    {
-        "question": "How do I set my OpenAI API key in Java?",
-        "answer": "To set your OpenAI API key in Java, you should store your API key in an environment variable. You can then access it in your Java code using the following line: `String apiKey = System.getenv(\"OPENAI_API_KEY\");`. This approach helps reduce the risk of exposing your API key publicly.",
-        "contexts": [
-            "Then, import your OpenAI API key. It's recommended to store your API keys in environment variables to reduce the risk of exposing them publicly. java String apiKey = System.getenv(\"OPENAI_API_KEY\");"
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192449,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/get-started.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 18
-    },
-    {
-        "question": "What file types can be imported?",
-        "answer": "TXT, PDFs, DOC, PPT, XLS",
-        "contexts": [
-            "- Importing various types of documents (TXT, PDFs, DOC, PPT, XLS etc.) from multiple sources (file system, URL, GitHub, Azure Blob Storage, Amazon S3, etc.)"
-        ],
-        "metadata": [
-            {
-                "pk": 453774234489192456,
-                "source": "/home/dkafetzis/Documents/langchain4j/docs/docs/intro.md"
-            }
-        ],
-        "question_type": "Single Hop Fact Seeking",
-        "uid": 19
+        "question_type": "Multi Hop Fact Seeking"
     }
 ]
